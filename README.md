@@ -8,10 +8,15 @@ The AI-Enhanced IoT Cradle Monitoring System with Predictive Infant Safety Alert
 This project continuously monitors infant safety conditions such as:
 
 🌡️ Temperature
+
 💧 Humidity
+
 👶 Baby Cry Detection
+
 🛏️ Baby Diaper Wetness Detection
+
 🧠 Unsafe Sleep Position Detection
+
 🌬️ Automatic Fan Control
 
 The system uses an ESP32 ⚡ microcontroller connected with sensors, a relay module, SG90 servo motor, and a webcam for real-time monitoring and predictive safety alerts.
@@ -42,29 +47,29 @@ The system uses an ESP32 ⚡ microcontroller connected with sensors, a relay mod
 
 - ## Hardware Components
   
-- !. ESP32 Microcontroller
-- 
-- 2. DHT11 Temperature & Humidity Sensor
+!. ESP32 Microcontroller
+ 
+2. DHT11 Temperature & Humidity Sensor
      
-- 3. Sound Sensor
+3. Sound Sensor
      
-- 4. Rain Sensor
+4. Rain Sensor
      
-- 5. SG90 Servo Motor
+5. SG90 Servo Motor
      
-- 6. Relay Module
+6. Relay Module
       
-- 7. DC Toy Fan
+7. DC Toy Fan
      
-- 8. USB Webcam
+8. USB Webcam
      
-- 9. Jumper Wires
+9. Jumper Wires
       
-- 10.Breadboard
+10.Breadboard
   
 ## 💻 Software Tools
 
-- 1. Arduino IDE
+1. Arduino IDE
      
 - 2. Python
      
