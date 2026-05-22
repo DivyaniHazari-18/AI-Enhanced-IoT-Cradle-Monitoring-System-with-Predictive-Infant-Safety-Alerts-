@@ -47,7 +47,7 @@ The system uses an ESP32 ⚡ microcontroller connected with sensors, a relay mod
 
 - ## Hardware Components
   
-!. ESP32 Microcontroller
+1. ESP32 Microcontroller
  
 2. DHT11 Temperature & Humidity Sensor
      
@@ -65,27 +65,28 @@ The system uses an ESP32 ⚡ microcontroller connected with sensors, a relay mod
      
 9. Jumper Wires
       
-10.Breadboard
+10. Breadboard
   
 ## 💻 Software Tools
 
 1. Arduino IDE
      
-- 2. Python
+2. Python
      
-- 3. OpenCV
+3. OpenCV
      
-- 4. YOLOv8
+4. YOLOv8
      
-- 5. Telegram Bot API
+5. Telegram Bot API
      
-- 6. VS Code
+6. VS Code
      
-- 7. 🌐 GitHub
+7. 🌐 GitHub
      
 # 🏗️ System Architecture
 
-'''🌡️ DHT11 Sensor
+```
+🌡️ DHT11 Sensor
 🎤 Sound Sensor
 💧 Rain Sensor
         ↓
@@ -102,6 +103,7 @@ The system uses an ESP32 ⚡ microcontroller connected with sensors, a relay mod
 🧠 YOLOv8 AI Detection
         ↓
 🛏️ Unsafe Sleep Position Detection
+```
 
 # ⚙️ Working Principle
 
@@ -129,51 +131,51 @@ The system uses an ESP32 ⚡ microcontroller connected with sensors, a relay mod
 - 💧 Rain Sensor	Diaper Wetness Detection
 - 📷 Webcam	Unsafe Sleep Position Detection
 - 🔌 Connections
-- 1️⃣ 🌡️ DHT11 Sensor Connections
+1️⃣ 🌡️ DHT11 Sensor Connections
 
-'VCC' → 3.3V (or 5V)
+`VCC` → 3.3V (or 5V)
 
-'GND' → GND
+`GND` → GND
 
-'DATA' → GPIO 4 (DHTPIN)
+`DATA` → GPIO 4 (DHTPIN)
 
-- 2️⃣ 🎤 Sound Sensor Connections
+2️⃣ 🎤 Sound Sensor Connections
 
-'VCC' → 3.3V
+`VCC` → 3.3V
 
-'GND' → GND
+`GND` → GND
 
-'OUT' → GPIO 34 (SOUND_SENSOR_PIN)
+`OUT` → GPIO 34 (SOUND_SENSOR_PIN)
 
-- 3️⃣ 💧 Rain Sensor Connections
+3️⃣ 💧 Rain Sensor Connections
 
-'VCC' → 3.3V
+`VCC` → 3.3V
 
-'GND' → GND
+`GND` → GND
 
-'AO (Analog OUT)' → GPIO 35 (RAIN_SENSOR_PIN)
+`AO (Analog OUT)` → GPIO 35 (RAIN_SENSOR_PIN)
 
-- 4️⃣ 🔄 SG90 Servo Motor Connections
+4️⃣ 🔄 SG90 Servo Motor Connections
 
-'Red Wire (VCC)' → 5V
+`Red Wire (VCC)` → 5V
 
-'Brown Wire (GND)' → GND
+`Brown Wire (GND)` → GND
 
-'Orange Wire (Signal)' → GPIO 13 (SERVO_PIN)
+`Orange Wire (Signal)` → GPIO 13 (SERVO_PIN)
 
-- 5️⃣ ⚡ Relay Module Connections
+5️⃣ ⚡ Relay Module Connections
 
-'VCC' → 5V
+`VCC` → 5V
 
-'GND' → GND
+`GND` → GND
 
-'IN' → GPIO 26 (RELAY_PIN)
+`IN` → GPIO 26 (RELAY_PIN)
 
-- 6️⃣ 🌬️ DC Toy Fan Connections
+6️⃣ 🌬️ DC Toy Fan Connections
 
-'Fan Positive' → Relay NO
+`Fan Positive` → Relay NO
 
-'Fan Negative' → GND
+`Fan Negative` → GND
 
 'Relay COM' → External Power Positive
 
