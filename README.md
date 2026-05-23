@@ -43,9 +43,9 @@ The system uses an ESP32 ⚡ microcontroller connected with sensors, a relay mod
 
 ✅ Reduce manual infant monitoring effort 
 
-# 🛠️ Technologies and Tools
+#  Technologies and Tools
 
-- ## Hardware Components
+## 🛠️ Hardware Components
   
 1. ESP32 Microcontroller
  
@@ -126,11 +126,17 @@ The system uses an ESP32 ⚡ microcontroller connected with sensors, a relay mod
 # 📥 Inputs
 
 ## 📥 Input Device	🎯 Purpose
+
 - 🌡️ DHT11 Sensor	Temperature & Humidity Monitoring
+  
 - 🎤 Sound Sensor	Baby Cry Detection
+  
 - 💧 Rain Sensor	Diaper Wetness Detection
+  
 - 📷 Webcam	Unsafe Sleep Position Detection
+  
 - 🔌 Connections
+  
 1️⃣ 🌡️ DHT11 Sensor Connections
 
 `VCC` → 3.3V (or 5V)
@@ -179,28 +185,28 @@ The system uses an ESP32 ⚡ microcontroller connected with sensors, a relay mod
 
 'Relay COM' → External Power Positive
 
-- 7️⃣ 📷 Webcam Connections
+7️⃣ 📷 Webcam Connections
 
 'USB Webcam' → Laptop USB Port
 
 # 📤 Outputs
 
-'✅ 🌡️ High Temperature Alerts'
+✅ 🌡️ High Temperature Alerts
 
-'✅ 💧 Diaper Wetness Alerts'
+✅ 💧 Diaper Wetness Alerts'
 
-'✅ 👶 Baby Cry Detection Alerts'
+✅ 👶 Baby Cry Detection Alerts'
 
-'✅ 🛏️ Unsafe Sleep Position Alerts'
+✅ 🛏️ Unsafe Sleep Position Alerts'
 
-'✅ 🌬️ Fan ON/OFF Status Alerts'
+✅ 🌬️ Fan ON/OFF Status Alerts'
 
-'✅ 🔄 Automatic Cradle Swinging'
+✅ 🔄 Automatic Cradle Swinging'
 
-'✅ 📩 Telegram Real-Time Notifications'
+✅ 📩 Telegram Real-Time Notifications'
 
 # 📂 Project File Structure
-'''
+```
 AI-Enhanced-IoT-Cradle-Monitoring-System/
 │
 ├── 📁 Arduino_Code/
@@ -226,33 +232,37 @@ AI-Enhanced-IoT-Cradle-Monitoring-System/
 ├── 📄 README.md
 ├── 📄 requirements.txt
 └── 📄 LICENSE
-'''
+```
+
 # 🚀 How to Run the Project
-- 1️⃣ Clone the Repository
+1️⃣ Clone the Repository
   
 git clone https://github.com/your-username/AI-Enhanced-IoT-Cradle-Monitoring-System.git
 
-- 2️⃣ 'Install Python Libraries'
- 
-      'pip install ultralytics'
-  
-      'pip install opencv-python'
-  
-      'pip install numpy'
+2️⃣ Upload ESP32 Arduino Code
 
-      'pip install pyserial'
-  
-- 3️⃣ Upload ESP32 Arduino Code
+✅ Open Arduino IDE
 
-'✅ Open Arduino IDE'
+✅ Install ESP32 Board Package
 
-'✅ Install ESP32 Board Package'
+✅ Connect ESP32 Board
 
-✅ Connect ESP32 Board'
 ✅ Upload Arduino Code
 
+3️⃣ Install Python Libraries
+ 
+- `pip install ultralytics`
+  
+- `pip install opencv-python`
+  
+- `pip install numpy`
+
+- `pip install pyserial`
+  
 4️⃣ Run YOLOv8 AI Monitoring
+
 python yolov8_detection.py
+
 🖼️ Output Screenshots
 
 Add screenshots of:
@@ -261,8 +271,8 @@ Add screenshots of:
 🔌 Circuit Connections
 🧠 YOLOv8 Detection Output
 📩 Telegram Alert Messages
-🌬️ Fan ON/OFF Alerts
-🔄 Servo Motor Cradle Swinging
+
+
 
 Example:
 
@@ -304,7 +314,7 @@ This project is licensed under the MIT License 📄.
 
 👩‍💻 Author
 
-✨ Your Name
+- Hazari Divyani
 
 📚 References
 
@@ -317,7 +327,7 @@ This project is licensed under the MIT License 📄.
 
 ✅ Conclusion
 
-The AI-Enhanced IoT Cradle Monitoring System with Predictive Infant Safety Alerts provides an intelligent and reliable infant monitoring solution using IoT 🌐, Artificial Intelligence 🧠, Machine Learning 🤖, and Computer Vision 👁️ technologies.
+The AI-Enhanced IoT Cradle Monitoring System with Predictive Infant Safety Alerts provides an intelligent and reliable infant monitoring solution using IoT 🌐, Artificial Intelligence , Machine Learning 🤖, and Computer Vision 👁️ technologies.
 
 The integration of ESP32, sensors, relay-controlled fan system, SG90 servo motor, webcam monitoring, and YOLOv8 AI detection enables real-time monitoring and predictive infant safety analysis.
 
