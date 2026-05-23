@@ -25,85 +25,50 @@ The system uses an ESP32 ⚡ microcontroller connected with sensors, a relay mod
 
 # 🎯 Objectives
 
-✅ Develop a smart IoT-based infant monitoring system
+1. To develop an AI-Enhanced IoT-Based Cradle Monitoring System for intelligent infant safety and monitoring.
+   
+2. To detect baby activities and unsafe sleep positions using sensors, webcam monitoring, and YOLOv8-based AI detection.
+   
+3. To provide real-time alerts and automated safety responses through Telegram Bot notifications and smart hardware control.
 
-✅ Monitor baby temperature and humidity in real time 
+# Technologies & Tools Used
 
-✅ Detect baby crying using sound sensors 
+`Microcontroller:` Arduino UNO / ESP32
 
-✅ Detect diaper wetness using rain sensors 
+`Sensors:`
 
-✅ Detect unsafe sleep positions using AI 
-
-✅ Automatically control fan using relay module 
-
-✅ Swing cradle using SG90 servo motor 
-
-✅ Send real-time Telegram alerts 
-
-✅ Reduce manual infant monitoring effort 
-
-#  Technologies and Tools
-
-## 🛠️ Hardware Components
+- DHT11 Temperature & Humidity Sensor
   
-1. ESP32 Microcontroller
- 
-2. DHT11 Temperature & Humidity Sensor
-     
-3. Sound Sensor
-     
-4. Rain Sensor
-     
-5. SG90 Servo Motor
-     
-6. Relay Module
-      
-7. DC Toy Fan
-     
-8. USB Webcam
-     
-9. Jumper Wires
-      
-10. Breadboard
+- Sound Sensor
   
-## 💻 Software Tools
+- Rain Sensor
 
-1. Arduino IDE
-     
-2. Python
-     
-3. OpenCV
-     
-4. YOLOv8
-     
-5. Telegram Bot API
-     
-6. VS Code
-     
-7. 🌐 GitHub
+`Hardware Components:`
+
+- SG90 Servo Motor
+  
+- Relay Module
+  
+- DC Toy Fan
+  
+- USB Webcam
+  
+- Jumper Wires
+  
+- Breadboard
+
+`Programming Languages:` Arduino C/C++, Python
+
+`Computer Vision & AI Model:` OpenCV, YOLOv8
+
+`Development Environments:` Arduino IDE, VS Code
+
+`Communication & Alert System:` Telegram Bot API
+
+`Version Control & Repository:` GitHubTechnologies and Tools
      
 # 🏗️ System Architecture
 
-```
-🌡️ DHT11 Sensor
-🎤 Sound Sensor
-💧 Rain Sensor
-        ↓
-      ⚡ ESP32
-        ↓
-🌐 Wi-Fi Communication
-        ↓
-📩 Telegram Bot Alerts
-        ↓
-📱 Parent Mobile
-
-📷 Webcam
-        ↓
-🧠 YOLOv8 AI Detection
-        ↓
-🛏️ Unsafe Sleep Position Detection
-```
 
 # ⚙️ Working Principle
 
@@ -124,18 +89,6 @@ The system uses an ESP32 ⚡ microcontroller connected with sensors, a relay mod
 8️⃣ Parents monitor the baby remotely 📱
 
 # 📥 Inputs
-
-## 📥 Input Device	🎯 Purpose
-
-- 🌡️ DHT11 Sensor	Temperature & Humidity Monitoring
-  
-- 🎤 Sound Sensor	Baby Cry Detection
-  
-- 💧 Rain Sensor	Diaper Wetness Detection
-  
-- 📷 Webcam	Unsafe Sleep Position Detection
-  
-- 🔌 Connections
   
 1️⃣ 🌡️ DHT11 Sensor Connections
 
@@ -183,11 +136,11 @@ The system uses an ESP32 ⚡ microcontroller connected with sensors, a relay mod
 
 `Fan Negative` → GND
 
-'Relay COM' → External Power Positive
+`Relay COM` → External Power Positive
 
 7️⃣ 📷 Webcam Connections
 
-'USB Webcam' → Laptop USB Port
+`USB Webcam` → Laptop USB Port
 
 # 📤 Outputs
 
