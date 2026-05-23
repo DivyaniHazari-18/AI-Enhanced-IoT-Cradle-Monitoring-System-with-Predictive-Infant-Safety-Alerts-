@@ -1,0 +1,166 @@
+/******************** LIBRARIES ********************/
+#include <WiFi.h>
+#include <WiFiClientSecure.h>
+#include <UniversalTelegramBot.h>
+#include <DHT.h>
+#include <ESP32Servo.h>
+
+/******************** WIFI *************************/
+char ssid[] = "Divyani";
+char pass[] = "Divyani2004";
+
+/******************** TELEGRAM *********************/
+#define BOT_TOKEN "8434712794:AAElTdrk1yLgCJiI52KI9FR_G2bOJ5zrCb0"
+#define CHAT_ID   "7798127942"
+
+WiFiClientSecure client;
+UniversalTelegramBot bot(BOT_TOKEN, client);
+
+/******************** PIN DEFINITIONS *************/
+#define DHT_PIN       4
+#define RAIN_PIN      34
+#define RELAY_PIN     26
+#define SERVO_PIN     25
+#define SOUND_PIN     27
+
+/******************** OBJECTS *********************/
+DHT dht(DHT_PIN, DHT11);
+Servo cradleServo;
+
+/******************** FLAGS ***********************/
+bool babyCry = false;
+bool unsafePosition = false;
+bool fanState = false;
+
+/******************** CRY DETECTION **************/
+bool detectCry() {
+  int soundState = digitalRead(SOUND_PIN);
+  return (soundState == LOW);
+}
+
+/******************** SERVO CONTROL **************/
+void moveServoSmooth(int startAngle, int endAngle) {
+  if (startAngle < endAngle) {
+    for (int a = startAngle; a <= endAngle; a++) {
+      cradleServo.write(a);
+      delay(15);
+    }
+  } else {
+    for (int a = startAngle; a >= endAngle; a--) {
+      cradleServo.write(a);
+      delay(15);
+    }
+  }
+}
+
+/* ✅ UPDATED FULL RANGE 0–180 */
+void tiltCradle() {
+  moveServoSmooth(90, 0);    // left extreme
+  delay(1000);
+
+  moveServoSmooth(0, 180);   // right extreme
+  delay(1000);
+
+  moveServoSmooth(180, 90);  // back to center
+}
+
+/******************** STATUS MESSAGE **************/
+void sendStatus(String chat_id) {
+  float t = dht.readTemperature();
+  float h = dht.readHumidity();
+  int wet = analogRead(RAIN_PIN);
+
+  String msg =
+    "👶 *Baby Status Update*\n"
+    "🌡 Temperature: " + String(t) + " °C\n"
+    "💧 Humidity: " + String(h) + " %\n"
+    "🍼 Diaper: " + String(wet < 2000 ? "Wet" : "Dry") + "\n"
+    "🔊 Cry: " + String(babyCry ? "Detected" : "Not Detected") + "\n"
+    "🛏 Sleep Position: " + String(unsafePosition ? "Unsafe" : "Safe") + "\n"
+    "🌀 Fan: " + String(fanState ? "ON" : "OFF") + "\n"
+    "🛠 Cradle: Active";
+
+  bot.sendMessage(chat_id, msg, "Markdown");
+}
+
+/******************** SETUP **********************/
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(RELAY_PIN, OUTPUT);
+  pinMode(SOUND_PIN, INPUT);
+
+  digitalWrite(RELAY_PIN, HIGH);
+
+  cradleServo.attach(SERVO_PIN, 500, 2400);
+  cradleServo.write(90);
+
+  dht.begin();
+
+  WiFi.begin(ssid, pass);
+  client.setInsecure();
+  while (WiFi.status() != WL_CONNECTED) delay(500);
+
+  bot.sendMessage(CHAT_ID,
+    "✅ IoT Baby Cradle Monitoring Started (SG90 Full Range Mode)",
+    "");
+}
+
+/******************** LOOP ***********************/
+void loop() {
+
+  float temp = dht.readTemperature();
+  int wetVal = analogRead(RAIN_PIN);
+
+  babyCry = detectCry();
+
+  /* Fan Control */
+  if (temp > 30) {
+    digitalWrite(RELAY_PIN, LOW);
+    fanState = true;
+  } else {
+    digitalWrite(RELAY_PIN, HIGH);
+    fanState = false;
+  }
+
+  /* Diaper Alert */
+  if (wetVal < 2000) {
+    bot.sendMessage(CHAT_ID, "💧 Diaper wetness detected!", "");
+  }
+
+  /* Cry Alert */
+  if (babyCry) {
+    bot.sendMessage(CHAT_ID, "🔊 Baby cry detected! Cradle tilting.", "");
+    tiltCradle();
+    delay(5000);
+  }
+
+  /* Unsafe Position Alert */
+  if (unsafePosition) {
+    bot.sendMessage(CHAT_ID, "🚨 Unsafe baby sleeping position detected!", "");
+  }
+
+  /* Telegram Commands */
+  int messages = bot.getUpdates(bot.last_message_received + 1);
+  while (messages) {
+    for (int i = 0; i < messages; i++) {
+      String text = bot.messages[i].text;
+      String chat_id = bot.messages[i].chat_id;
+
+      if (text == "/help") {
+        bot.sendMessage(chat_id,
+          "🤖 *Available Commands*\n"
+          "/status - View baby status\n"
+          "/help - Show commands",
+          "Markdown");
+      }
+
+      if (text == "/status") {
+        sendStatus(chat_id);
+      }
+    }
+    messages = bot.getUpdates(bot.last_message_received + 1);
+  }
+
+  delay(3000);
+}
