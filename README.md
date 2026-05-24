@@ -48,6 +48,7 @@ The AI-Enhanced IoT Cradle Monitoring System is a smart infant safety solution u
      
 # 🏗️ System Architecture
 
+<img width="1025" height="673" alt="Screenshot 2026-04-01 162216" src="https://github.com/user-attachments/assets/61648323-a27e-4334-bfdd-988ce4fbb460" />
 
 # ⚙️ Working Principle
 
