@@ -46,10 +46,6 @@ The AI-Enhanced IoT Cradle Monitoring System is a smart infant safety solution u
 
 `Version Control & Repository:` GitHubTechnologies and Tools
 
-# Block Diagram
-
-<img width="956" height="579" alt="Screenshot 2026-04-01 145441" src="https://github.com/user-attachments/assets/df58770a-dca8-4d0c-9ba4-976e056100f1" />
-
 # 📥 Inputs
   
 1️⃣ 🌡️ DHT11 Sensor Connections
@@ -104,6 +100,14 @@ The AI-Enhanced IoT Cradle Monitoring System is a smart infant safety solution u
 
 `USB Webcam` → Laptop USB Port
 
+# ⚙️Working Principle
+
+The AI-Enhanced IoT Cradle Monitoring System continuously monitors the infant’s safety and surrounding environmental conditions using multiple sensors connected to the ESP32 microcontroller. The temperature, humidity, sound, and wetness sensors collect real-time data from the cradle environment. A webcam captures live video of the infant, and the YOLOv8-based machine learning model analyzes the video feed to detect unsafe sleeping positions or unusual movements. Based on the sensor readings, the system automatically controls the cradle swinging mechanism using a servo motor and regulates the fan through a relay module whenever the temperature exceeds the predefined limit. In critical situations such as abnormal temperature, excessive crying, or unsafe sleeping posture, instant alert notifications are sent to parents through a Telegram bot, enabling remote monitoring and immediate response for improved infant safety.
+
+# Block Diagram
+
+<img width="956" height="579" alt="Screenshot 2026-04-01 145441" src="https://github.com/user-attachments/assets/df58770a-dca8-4d0c-9ba4-976e056100f1" />
+
 # Circuit Diagram
 
 <img width="578" height="315" alt="CircuitD_Major" src="https://github.com/user-attachments/assets/4563600e-2575-40f2-9d59-a4db0139b648" />
@@ -112,13 +116,35 @@ The AI-Enhanced IoT Cradle Monitoring System is a smart infant safety solution u
 
 <img width="578" height="349" alt="HardwareC_Major" src="https://github.com/user-attachments/assets/c5cc3890-d992-48d6-a065-91036a9dce92" />
 
-# ⚙️Working Principle
-
-The AI-Enhanced IoT Cradle Monitoring System continuously monitors the infant’s safety and surrounding environmental conditions using multiple sensors connected to the ESP32 microcontroller. The temperature, humidity, sound, and wetness sensors collect real-time data from the cradle environment. A webcam captures live video of the infant, and the YOLOv8-based machine learning model analyzes the video feed to detect unsafe sleeping positions or unusual movements. Based on the sensor readings, the system automatically controls the cradle swinging mechanism using a servo motor and regulates the fan through a relay module whenever the temperature exceeds the predefined limit. In critical situations such as abnormal temperature, excessive crying, or unsafe sleeping posture, instant alert notifications are sent to parents through a Telegram bot, enabling remote monitoring and immediate response for improved infant safety.
-
 # 🏗️System Architecture Flow Diagram
 
 <img width="1025" height="673" alt="Screenshot 2026-04-01 162216" src="https://github.com/user-attachments/assets/61648323-a27e-4334-bfdd-988ce4fbb460" />
+
+# 🚀 How to Run the Project
+
+1️⃣ Upload ESP32 Arduino Code
+
+✅ Open Arduino IDE
+
+✅ Install ESP32 Board Package
+
+✅ Connect ESP32 Board
+
+✅ Upload Arduino Code
+
+2️⃣ Install Python Libraries
+ 
+- `pip install ultralytics`
+  
+- `pip install opencv-python`
+  
+- `pip install numpy`
+
+- `pip install pyserial`
+  
+3️⃣ Run YOLOv8 AI Monitoring
+
+`python yolov8_detection.py`
 
 # 📤 Outputs
 
@@ -126,11 +152,11 @@ The AI-Enhanced IoT Cradle Monitoring System continuously monitors the infant’
 
 <img width="901" height="1600" alt="Detection Of Safe  Sleep Position Using Roboflow" src="https://github.com/user-attachments/assets/14dcd453-0729-47d5-aedd-8c94394f022d" /> <img width="941" height="1600" alt="Detection Of Unsafe Sleep Positions Using Roboflow" src="https://github.com/user-attachments/assets/7ce1916f-b043-4d2f-84f0-df2b1b78ea40" />
 
-## 2. Real-Time Baby Safe Position Detection Using Web Camera
+## 2. Real-Time Baby Safe Sleep Position Detection Using Web Camera
 
 <img width="1222" height="835" alt="realtime safe" src="https://github.com/user-attachments/assets/41223a7c-ca5e-4027-b646-03ecdf3d6ed0" />
 
-## 3. Real-Time Baby Unsafe Position Detection Using Web Camera
+## 3. Real-Time Baby Unsafe Sleep Position Detection Using Web Camera
 
 <img width="1363" height="956" alt="realtime unsafe" src="https://github.com/user-attachments/assets/be655715-23a9-4394-8231-1500ea0d9b65" />
 
@@ -168,79 +194,19 @@ AI-Enhanced-IoT-Cradle-Monitoring-System/
 ├── 📄 requirements.txt
 └── 📄 LICENSE
 ```
+# Future Scope
 
-# 🚀 How to Run the Project
-1️⃣ Clone the Repository
-  
-git clone https://github.com/your-username/AI-Enhanced-IoT-Cradle-Monitoring-System.git
+`Addition of health monitoring sensors such as heartbeat and oxygen sensors`
 
-2️⃣ Upload ESP32 Arduino Code
+`Cloud storage for maintaining infant monitoring history and analytics`
 
-✅ Open Arduino IDE
+`Implementation of advanced AI models for improved behavior analysis`
 
-✅ Install ESP32 Board Package
+`Integration with smart home automation systems`
 
-✅ Connect ESP32 Board
+✅ Conclusion
 
-✅ Upload Arduino Code
-
-3️⃣ Install Python Libraries
- 
-- `pip install ultralytics`
-  
-- `pip install opencv-python`
-  
-- `pip install numpy`
-
-- `pip install pyserial`
-  
-4️⃣ Run YOLOv8 AI Monitoring
-
-python yolov8_detection.py
-
-# Output 
-## 1. Real-Time Baby Sleep
-
-📷 Hardware Setup
-🔌 Circuit Connections
-🧠 YOLOv8 Detection Output
-📩 Telegram Alert Messages
-
-
-
-Example:
-
-📁 Images/
-├── hardware_setup.png
-├── circuit_diagram.png
-├── yolov8_output.png
-├── telegram_alert.png
-└── fan_control_output.png
-🎥 Output Video
-
-Add the project demo video inside the Videos/ folder.
-
-Example:
-
-📁 Videos/
-└── project_demo.mp4
-
-You can upload the demo video to:
-
-▶️ YouTube
-☁️ Google Drive
-🌐 GitHub Releases
-💼 LinkedIn
-🔮 Future Enhancements
-
-🚑 Heartbeat Monitoring
-🫁 Oxygen Level Monitoring
-📱 Mobile Application Development
-🗣️ Voice Assistant Integration
-🧠 Edge AI Processing
-😊 Facial Expression Analysis
-🏥 Smart Healthcare Integration
-☁️ Cloud Dashboard Integration
+The AI-Enhanced IoT Cradle Monitoring System with Predictive Infant Safety Alerts successfully detects unsafe infant sleeping positions and environmental risks using YOLOv8 and IoT sensors. The system provides real-time alerts and automatic cradle movement for timely and effective infant safety monitoring. By integrating Artificial Intelligence, Machine Learning, and IoT technologies, the project enhances infant safety, supports remote monitoring, and reduces parental stress through continuous real-time monitoring and alert mechanisms.
 
 📜 License
 
@@ -248,31 +214,4 @@ This project is licensed under the MIT License 📄.
 
 👩‍💻 Author
 
-- Hazari Divyani
-
-📚 References
-
-1️⃣ ESP32 Official Documentation
-2️⃣ YOLOv8 Documentation
-3️⃣ OpenCV Documentation
-4️⃣ Telegram Bot API Documentation
-5️⃣ Arduino IDE Documentation
-6️⃣ IEEE Research Papers on Smart Infant Monitoring
-
-✅ Conclusion
-
-The AI-Enhanced IoT Cradle Monitoring System with Predictive Infant Safety Alerts provides an intelligent and reliable infant monitoring solution using IoT 🌐, Artificial Intelligence , Machine Learning 🤖, and Computer Vision 👁️ technologies.
-
-The integration of ESP32, sensors, relay-controlled fan system, SG90 servo motor, webcam monitoring, and YOLOv8 AI detection enables real-time monitoring and predictive infant safety analysis.
-
-The system successfully:
-
-✅ Detects baby crying
-✅ Detects diaper wetness
-✅ Monitors temperature and humidity
-✅ Detects unsafe sleep positions
-✅ Controls fan automatically
-✅ Swings cradle automatically
-✅ Sends instant Telegram alerts
-
-This project demonstrates a smart healthcare solution that improves infant safety, reduces parental stress, and enables real-time remote monitoring for modern smart homes and healthcare systems.
+`Hazari Divyani`
