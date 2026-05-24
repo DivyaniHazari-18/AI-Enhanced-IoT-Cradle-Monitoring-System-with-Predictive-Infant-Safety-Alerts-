@@ -12,7 +12,7 @@ The AI-Enhanced IoT Cradle Monitoring System is a smart infant safety solution u
 
 # Technologies & Tools Used
 
-`Microcontroller:` Arduino UNO / ESP32
+`Microcontroller:` ESP32
 
 `Sensors:`
 
