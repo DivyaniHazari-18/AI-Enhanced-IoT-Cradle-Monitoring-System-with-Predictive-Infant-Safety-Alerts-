@@ -45,28 +45,10 @@ The AI-Enhanced IoT Cradle Monitoring System is a smart infant safety solution u
 `Communication & Alert System:` Telegram Bot API
 
 `Version Control & Repository:` GitHubTechnologies and Tools
-     
-# 🏗️ System Architecture
 
-<img width="1025" height="673" alt="Screenshot 2026-04-01 162216" src="https://github.com/user-attachments/assets/61648323-a27e-4334-bfdd-988ce4fbb460" />
+# Block Diagram
 
-# ⚙️ Working Principle
-
-1️⃣ Sensors continuously monitor infant conditions 👶
-
-2️⃣ ESP32 reads temperature, humidity, sound, and wetness data ⚡
-
-3️⃣ Webcam captures real-time baby video 🎥
-
-4️⃣ YOLOv8 analyzes unsafe sleeping positions 🧠
-
-5️⃣ Servo motor swings cradle automatically 🔄
-
-6️⃣ Relay controls fan based on temperature 🌬️
-
-7️⃣ Telegram bot sends instant alerts 📩
-
-8️⃣ Parents monitor the baby remotely 📱
+<img width="956" height="579" alt="Screenshot 2026-04-01 145441" src="https://github.com/user-attachments/assets/df58770a-dca8-4d0c-9ba4-976e056100f1" />
 
 # 📥 Inputs
   
@@ -122,21 +104,41 @@ The AI-Enhanced IoT Cradle Monitoring System is a smart infant safety solution u
 
 `USB Webcam` → Laptop USB Port
 
+# Circuit Diagram
+
+<img width="578" height="315" alt="CircuitD_Major" src="https://github.com/user-attachments/assets/4563600e-2575-40f2-9d59-a4db0139b648" />
+
+# Hardware Connection
+
+<img width="578" height="349" alt="HardwareC_Major" src="https://github.com/user-attachments/assets/c5cc3890-d992-48d6-a065-91036a9dce92" />
+
+# ⚙️Working Principle
+
+The AI-Enhanced IoT Cradle Monitoring System continuously monitors the infant’s safety and surrounding environmental conditions using multiple sensors connected to the ESP32 microcontroller. The temperature, humidity, sound, and wetness sensors collect real-time data from the cradle environment. A webcam captures live video of the infant, and the YOLOv8-based machine learning model analyzes the video feed to detect unsafe sleeping positions or unusual movements. Based on the sensor readings, the system automatically controls the cradle swinging mechanism using a servo motor and regulates the fan through a relay module whenever the temperature exceeds the predefined limit. In critical situations such as abnormal temperature, excessive crying, or unsafe sleeping posture, instant alert notifications are sent to parents through a Telegram bot, enabling remote monitoring and immediate response for improved infant safety.
+
+# 🏗️System Architecture Flow Diagram
+
+<img width="1025" height="673" alt="Screenshot 2026-04-01 162216" src="https://github.com/user-attachments/assets/61648323-a27e-4334-bfdd-988ce4fbb460" />
+
 # 📤 Outputs
 
-✅ 🌡️ High Temperature Alerts
+## 1. Detection Of Safe and Unsafe Sleep Positions Using Roboflow
 
-✅ 💧 Diaper Wetness Alerts'
+<img width="901" height="1600" alt="Detection Of Safe  Sleep Position Using Roboflow" src="https://github.com/user-attachments/assets/14dcd453-0729-47d5-aedd-8c94394f022d" /> <img width="941" height="1600" alt="Detection Of Unsafe Sleep Positions Using Roboflow" src="https://github.com/user-attachments/assets/7ce1916f-b043-4d2f-84f0-df2b1b78ea40" />
 
-✅ 👶 Baby Cry Detection Alerts'
+## 2. Real-Time Baby Safe Position Detection Using Web Camera
 
-✅ 🛏️ Unsafe Sleep Position Alerts'
+<img width="1222" height="835" alt="realtime safe" src="https://github.com/user-attachments/assets/41223a7c-ca5e-4027-b646-03ecdf3d6ed0" />
 
-✅ 🌬️ Fan ON/OFF Status Alerts'
+## 3. Real-Time Baby Unsafe Position Detection Using Web Camera
 
-✅ 🔄 Automatic Cradle Swinging'
+<img width="1363" height="956" alt="realtime unsafe" src="https://github.com/user-attachments/assets/be655715-23a9-4394-8231-1500ea0d9b65" />
 
-✅ 📩 Telegram Real-Time Notifications'
+## 4. Real-Time Alerts using Telegram Bot
+
+<img width="540" height="1202" alt="WhatsApp Image 2026-02-03 at 12 27 11 PM (1)" src="https://github.com/user-attachments/assets/eb614ac7-17e2-45fa-992c-208de09fad8d" />
+<img width="540" height="1202" alt="WhatsApp Image 2026-02-03 at 12 27 11 PM" src="https://github.com/user-attachments/assets/b2bf240c-fbbb-45f8-97c6-33049ec753b7" />
+<img width="1024" height="1536" alt="Baby status alerts in Telegram chat" src="https://github.com/user-attachments/assets/064a68c6-847d-497b-b336-573231c66e4e" />
 
 # 📂 Project File Structure
 ```
@@ -196,9 +198,8 @@ git clone https://github.com/your-username/AI-Enhanced-IoT-Cradle-Monitoring-Sys
 
 python yolov8_detection.py
 
-🖼️ Output Screenshots
-
-Add screenshots of:
+# Output 
+## 1. Real-Time Baby Sleep
 
 📷 Hardware Setup
 🔌 Circuit Connections
