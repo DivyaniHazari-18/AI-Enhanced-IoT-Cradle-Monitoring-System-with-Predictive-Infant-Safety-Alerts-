@@ -36,7 +36,7 @@ The AI-Enhanced IoT Cradle Monitoring System is a smart infant safety solution u
   
 - Breadboard
 
-`Programming Languages:` Arduino C/C++, Python
+`Programming Languages:` Arduino C++, Python
 
 `Computer Vision & AI Model:` OpenCV, YOLOv8
 
